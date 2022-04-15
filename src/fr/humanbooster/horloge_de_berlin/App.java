@@ -2,6 +2,13 @@ package fr.humanbooster.horloge_de_berlin;
 
 import java.util.Scanner;
 
+/**
+ * Cette classe permet de convertir les heures et minutes à la façon berlinoise
+ * (FX aime beaucoup cette horloge)
+ * 
+ * @author Franck
+ *
+ */
 public class App {
 
 	public static void main(String[] args) {
@@ -17,49 +24,49 @@ public class App {
 		Scanner scanner = new Scanner(System.in);
 
 		// Partie traitement
-		//On stock la saisie des heures
+		// On stock la saisie des heures
 		System.out.print("Entrez les heures (0-23) :");
 		heures = scanner.nextInt();
 
-		//On stock la saisie des minutes
+		// On stock la saisie des minutes
 		System.out.print("Entrez les heures (0-59) :");
 		minutes = scanner.nextInt();
 		scanner.close();
-		
-		//Calcul des petits O
+
+		// Calcul des petits O
 		moduloHeures = heures % 5;
-		//Calcul des gros O
+		// Calcul des gros O
 		heures = (heures - moduloHeures) / 5;
 
-		//Calcul des petits X
+		// Calcul des petits X
 		moduloMinutes = minutes % 5;
-		//Calcul des gros X
+		// Calcul des gros X
 		minutes = (minutes - moduloMinutes) / 5;
-		
-		//Affichage des résultats
+
+		// Affichage des résultats
 		for (int i = 0; i < heures; i++) {
 			grandO += "O";
 		}
-		
+
 		for (int i = 0; i < moduloHeures; i++) {
 			petitO += "o";
 		}
-		
+
 		for (int i = 0; i < minutes; i++) {
 			grandX += "X";
 		}
-		
+
 		for (int i = 0; i < moduloMinutes; i++) {
 			petitX += "x";
 		}
-		
-		//Affichage des heures par 5
+
+		// Affichage des heures par 5
 		System.out.println(grandO);
-		//Affichage du restant des heures
+		// Affichage du restant des heures
 		System.out.println(petitO);
-		//Affichage des minutes par 5
+		// Affichage des minutes par 5
 		System.out.println(grandX);
-		//Affichage du restant des minutes
+		// Affichage du restant des minutes
 		System.out.println(petitX);
 	}
 }
